@@ -1,3 +1,5 @@
+![Agent RAMsey, an illustrated ram operative in a dark coat against ivory paper and burnt-orange accents.](assets/ramsey-hero.jpg)
+
 # Agent RAMsey
 
 Agent RAMsey is an on-demand Mac resource agent for humans and coding assistants. It measures CPU and memory use, then adds context before you decide what to do. It does not close apps or run a background service.
@@ -36,6 +38,8 @@ node install.mts --bin-dir ./local-bin --skill-dir ./local-skills/ramsey
 A remote assistant needs its own existing, authorized connection to the Mac. No private connection, key or remote account is shipped.
 
 ## The five upgrades
+
+![RAMsey's toolkit: history, helper inspection, active-work awareness, capacity checks, and energy and heat diagnostics. These are capability illustrations, not live measurements.](assets/ramsey-toolkit.jpg)
 
 | Feature | Commands | What it does |
 |---|---|---|
@@ -111,5 +115,11 @@ npm run verify
 The fixture tests run on macOS and Linux. Live collection requires a Mac. Runtime type stripping does not type-check code. `tsconfig.json` enables strict checking for maintainers with an installed TypeScript compiler and Node typings.
 
 The public-file check uses an explicit allowlist and rejects private machine paths and credential patterns. Local reports and connection notes are excluded from Git. CI runs the tests and public-file check on macOS and Linux.
+
+## RAMsey's identity
+
+<img src="assets/ramsey-avatar.jpg" alt="Agent RAMsey's ram portrait, with curled horns, an earpiece and a dark coat." width="160" height="160">
+
+The selected look is an original noir operative illustration. The [cover](assets/ramsey-hero.jpg), [avatar](assets/ramsey-avatar.jpg) and [toolkit](assets/ramsey-toolkit.jpg) use one coordinated identity. See the [artwork notes](assets/README.md).
 
 See the [architecture guide](docs/ARCHITECTURE.md), editable [workflow](docs/diagrams/workflow.mmd), [rendered diagram](docs/diagrams/workflow.svg) and [change log](CHANGELOG.md).

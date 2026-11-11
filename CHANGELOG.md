@@ -1,5 +1,11 @@
 # Change log
 
+## Artwork, 2026-11-11
+
+- Added the selected noir operative identity with a matching cover and avatar.
+- Added an illustrated five-feature toolkit, with equivalent feature text retained in the README.
+- Extended the public-file check to validate raster signatures while keeping its size and privacy checks.
+
 ## 2.0.1, 2026-11-11
 
 - Fixed history validation for finite fractional-byte estimates derived from rounded macOS swap output.

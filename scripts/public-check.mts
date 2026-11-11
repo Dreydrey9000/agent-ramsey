@@ -12,7 +12,14 @@ for (const name of names) {
   const path = join(root, name);
   const info = lstatSync(path);
   if (!info.isFile() || info.isSymbolicLink() || info.size > 1024 * 1024) throw new Error(`Invalid public file: ${name}`);
-  const text = readFileSync(path, 'utf8');
+  const data = readFileSync(path);
+  const raster = /\.(?:jpg|jpeg|png)$/i.test(name);
+  if (raster) {
+    const jpeg = /\.jpe?g$/i.test(name) && data[0] === 0xff && data[1] === 0xd8 && data[2] === 0xff;
+    const png = /\.png$/i.test(name) && data.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+    if (!jpeg && !png) throw new Error(`Raster signature does not match extension: ${name}`);
+  }
+  const text = data.toString(raster ? 'latin1' : 'utf8');
   if (patterns.some(pattern => pattern.test(text))) throw new Error(`Private-path or credential pattern found in ${name}`);
 }
 let tracked: string[] = [];

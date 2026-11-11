@@ -22,3 +22,8 @@ docs/ARCHITECTURE.md
 docs/diagrams/workflow.mmd
 docs/diagrams/workflow.svg
 PUBLIC-FILES.txt
+THEME-DECISION.md
+assets/README.md
+assets/ramsey-hero.jpg
+assets/ramsey-avatar.jpg
+assets/ramsey-toolkit.jpg
