@@ -25,7 +25,7 @@ export function validHistory(value: unknown): value is HistoryEntry {
   if (v.schema !== 2 || typeof v.id !== 'string' || !UUID.test(v.id) || typeof v.installationId !== 'string' || !UUID.test(v.installationId)
       || !isWorkload(v.workload) || !Number.isInteger(v.samples) || v.samples! < 1 || v.samples! > 12
       || !Number.isInteger(v.interval) || v.interval! < 1 || v.interval! > 10 || !finite(v.windowSeconds, 0.001) || v.windowSeconds > 3600
-      || !bytes(v.totalMemoryBytes) || v.totalMemoryBytes === 0 || !bytes(v.swapUsedBytes)
+      || !bytes(v.totalMemoryBytes) || v.totalMemoryBytes === 0 || !(v.swapUsedBytes === null || finite(v.swapUsedBytes))
       || !(v.pressure === null || ['normal', 'warning', 'critical', 'unknown'].includes(v.pressure ?? ''))
       || typeof v.capturedAt !== 'string' || !Number.isFinite(Date.parse(v.capturedAt))
       || new Date(v.capturedAt).toISOString() !== v.capturedAt || !Array.isArray(v.apps) || v.apps.length > 16) return false;
@@ -139,6 +139,7 @@ export class LocalState {
       capturedAt: report.capturedAt, workload, samples, interval, windowSeconds: report.windowSeconds,
       totalMemoryBytes: report.end.totalMemoryBytes, pressure: report.end.memoryPressure, swapUsedBytes: report.end.swapUsedBytes,
       apps: apps.map(({ id, name, cpuPercent, rssGiB }) => ({ id, name, cpuPercent, rssGiB })) };
+    if (!validHistory(entry)) throw new Error('Invalid history measurements. No history entry was saved.');
     const dir = join(this.root, 'history');
     checkedDirectory(dir);
     atomicJson(join(dir, `${String(Date.parse(entry.capturedAt)).padStart(13, '0')}-${entry.id}.json`), entry);

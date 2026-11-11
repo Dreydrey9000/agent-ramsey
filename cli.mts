@@ -85,7 +85,7 @@ export function formatReport(report: Report): string {
   ].join('\n\n');
 }
 
-const HELP = `Agent RAMsey 2.0.0: on-demand Mac resource checks
+const HELP = `Agent RAMsey 2.0.1: on-demand Mac resource checks
 Usage: ramsey [check] [--samples 1..12] [--interval 1..10] [--workload KIND] [--no-history] [--json]
        ramsey history|compare|helpers|work|energy [--json]
        ramsey protect --pid PID --kind KIND [--ttl-minutes 1..1440] [--json]
@@ -97,7 +97,7 @@ History: up to 100 entries for 14 days. State: RAMSEY_STATE_DIR or ~/.local/stat
 Default: three 5-second intervals. No daemon, notifications or automatic app control.`;
 
 export async function run(options: Options): Promise<unknown> {
-  if (options.command === 'version') return { version: '2.0.0' };
+  if (options.command === 'version') return { version: '2.0.1' };
   const state = () => new LocalState();
   if (options.command === 'history' || options.command === 'compare') {
     const entries = state().history();
@@ -137,7 +137,7 @@ export async function run(options: Options): Promise<unknown> {
       comparison: entries.length >= 2 ? compareEntries(entries.at(-2)!, entries.at(-1)!) : null };
   }
   const cpu = process.cpuUsage(cpuStart);
-  return { ...report, version: 2, release: '2.0.0', workload: options.workload, activeWork: annotateWork(latest.processes, active),
+  return { ...report, version: 2, release: '2.0.1', workload: options.workload, activeWork: annotateWork(latest.processes, active),
     energy, helpers, history, observer: { wallSeconds: (performance.now() - wallStart) / 1000,
       nodeCpuSeconds: (cpu.user + cpu.system) / 1000000, nodeRssMiB: process.memoryUsage().rss / 1048576,
       note: 'Observer values cover the Node process. Native helper CPU and memory are not included.' } };

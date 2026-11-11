@@ -125,6 +125,15 @@ test('malformed persisted measurements cannot fabricate a zero baseline or compa
     assert.equal(compareEntries(changed as HistoryEntry, after).changes.length, 0);
   }
   assert.equal(compareEntries({ ...before, totalMemoryBytes: null }, { ...after, totalMemoryBytes: null }).comparable, false);
+  assert.equal(validHistory({ ...before, swapUsedBytes: 123456789.125 }), true);
+});
+
+test('invalid live measurements are rejected before writing an unusable history entry', t => {
+  const root = mkdtempSync(join(tmpdir(), 'ramsey-test-')); t.after(() => rmSync(root, { recursive: true, force: true }));
+  const state = new LocalState(root); const value = report();
+  value.topCpu[0].rssGiB = NaN;
+  assert.throws(() => state.record(value, 'idle', 1, 5), /No history entry was saved/);
+  assert.equal(state.history().length, 0);
 });
 
 test('existing state and history directories must be private', t => {

@@ -1,5 +1,10 @@
 # Change log
 
+## 2.0.1, 2026-11-11
+
+- Fixed history validation for finite fractional-byte estimates derived from rounded macOS swap output.
+- Validate live history entries before writing so malformed measurements cannot poison later checks.
+
 ## 2.0.0, 2026-11-11
 
 - Added bounded private history and workload-aware comparisons, with growing-memory investigation hints.
