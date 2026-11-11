@@ -1,0 +1,15 @@
+{
+  "name": "agent-ramsey",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "On-demand macOS resource diagnostics for humans and coding agents",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "test": "node --test tests/*.test.mts",
+    "check:public": "node scripts/public-check.mts",
+    "verify": "npm test && npm run check:public",
+    "start": "node cli.mts",
+    "install:cli": "node install.mts"
+  }
+}

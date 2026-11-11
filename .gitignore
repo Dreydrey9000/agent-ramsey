@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+dist/
+.env*
+!.env.example
+*.log
+*.tmp
+.local/
+state/
+docs/reports/
+LOCAL-GUIDE.md
+SPEC.md
+VERIFICATION.md
+JAX-HANDOFF.md
+UPGRADES.md
+RELEASE-LOCAL.md
