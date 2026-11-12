@@ -2,7 +2,7 @@
 
 # Agent RAMsey
 
-Agent RAMsey is an on-demand Mac resource agent for humans and coding assistants. It measures CPU and memory use, then adds context before you decide what to do. It does not close apps or run a background service.
+Agent RAMsey helps humans and coding assistants keep a Mac responsive. It measures CPU and memory use, protects active work, and gives one evidence-based next step. Onboard once for lightweight checks at login; full diagnostics stay available on demand.
 
 RAMsey also answers to **Agent RAMsey**, **RAMsey**, **Agent RAM**, **the RAM agent** and **my RAM guy**.
 
@@ -36,6 +36,37 @@ node install.mts --bin-dir ./local-bin --skill-dir ./local-skills/ramsey
 ```
 
 A remote assistant needs its own existing, authorized connection to the Mac. No private connection, key or remote account is shipped.
+
+## Onboard once
+
+```sh
+ramsey onboard
+ramsey status
+```
+
+This installs an owned macOS LaunchAgent: one native check every **five minutes**, at background priority, after login while the Mac is awake. It runs no resident AI model and makes no network calls. Normal readings stay quiet. Warning pressure needs two consecutive readings; critical pressure alerts immediately, including escalation from a warning. Missing pressure needs three readings. Local notices have a one-hour cooldown and depend on macOS notification permission. `status` reports the last reading and whether it is fresh; it does not prove that a notification was displayed.
+
+Keep the checkout and Node executable in place. The monitor recovers from malformed monitor state by preserving one private backup and restarting its persistence counter. An unsafe state file or foreign LaunchAgent is refused. To stop checks and remove only this installation’s job:
+
+```sh
+ramsey offboard
+```
+
+History is retained. No app is automatically quit, restarted or cleared. A sleeping or logged-out Mac is not monitored.
+
+## RAMsey + QuickSilver
+
+```sh
+ramsey handoff --workload development --json
+```
+
+RAMsey checks **Mac capacity**. [QuickSilver](https://github.com/always-be-shipping-hq/quicksilver) measures **one app bottleneck**, proposes one small fix and proves the latency result. RAMsey’s handoff includes an observation window, protected-work rules and the before/after measurement contract. An assistant coordinates this on demand; the collector does not invoke another agent or start a polling loop. See the [team playbook](docs/QUICKSILVER.md).
+
+## Watch the explainer
+
+[![Watch Operation Headroom, a 48.5-second explanation of Agent RAMsey.](assets/ramsey-hero.jpg)](assets/ramsey-explainer.mp4)
+
+[Play or download the video](assets/ramsey-explainer.mp4) · [Editable Hyperframes project, transcript and rebuild instructions](video/README.md)
 
 ## The five upgrades
 
@@ -100,7 +131,7 @@ Heat diagnostics use [Apple's system thermal state](https://developer.apple.com/
 - Active-work awareness uses explicit registrations. It does not inspect recordings, documents, screens or project files.
 - History strips process IDs and executable paths. It still contains app names and should stay private. Files are owner-readable/writable only.
 - Raw battery registry data is filtered to allowlisted fields. Serial numbers are not reported or stored.
-- Missing readings stay unknown. No apps are stopped, files cleared, guards bypassed, jobs launched or notifications sent.
+- Missing readings stay unknown. No apps are stopped, files cleared or guards bypassed. Explicit onboarding installs only RAMsey’s own scheduled check and local notices.
 
 If `work.lock` remains after a crash, verify that no RAMsey registry update is running before removing that lock from the state directory. History corruption produces an error rather than a reassuring empty result.
 

@@ -1,0 +1,9 @@
+{
+  "provider": "HeyGen Voice",
+  "voice": "Roderic - Authoritative & Refined",
+  "voiceType": "Public synthetic narrator, not a private voice clone",
+  "language": "en",
+  "durationSeconds": 47.139886621315185,
+  "generatedFor": "Agent RAMsey explainer",
+  "script": "NARRATION.txt"
+}

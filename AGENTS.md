@@ -3,7 +3,7 @@
 - Read README.md and docs/ARCHITECTURE.md before editing.
 - Use TypeScript and Node standard libraries. There are no runtime package dependencies.
 - Keep native commands behind `NativeReader`. Pass fixed argument arrays, never shell strings built from input.
-- The CLI never controls processes or weakens existing resource guards.
+- The CLI manages only its explicitly onboarded LaunchAgent; it never controls app processes or weakens existing resource guards.
 - Unknown work stays protected. Missing readings stay unknown. RSS sums are not reclaimable RAM.
 - History must stay local, bounded and stripped of PIDs, full paths and command arguments.
 - Run `npm run verify` before release. Check live native behavior on a Mac and integration in a clean consumer.

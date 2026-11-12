@@ -1,14 +1,16 @@
 flowchart TD
-  A[Human or coding assistant requests RAMsey] --> B[Validated CLI command]
-  B --> C[Bounded native Mac measurements]
-  C --> D[CPU and resident memory]
-  C --> E[Accessible TCP listener metadata]
-  C --> F[Battery fields and thermal state]
-  B --> G[Private local history and active-work registry]
-  D --> H[Context and comparable checks]
-  E --> H
-  F --> H
-  G --> H
-  H --> I[Evidence report or capacity advice]
-  I --> J[Human chooses a next step]
-  K[Remote assistant with an existing authorized connection] --> B
+  User[Human or coding assistant] --> CLI[RAMsey CLI]
+  User --> Onboard[One-time onboard]
+  Onboard --> Launch[Owned login LaunchAgent / five minutes]
+  Launch --> Pressure[Short native pressure check / no resident model]
+  Pressure --> Status[Private latest state / status and local notices]
+  CLI --> Native[Native Mac reads / fixed commands]
+  Native --> Evidence[CPU intervals / RSS groups / work / capacity / energy]
+  Evidence --> Local[Private bounded history and comparisons]
+  Evidence --> Advice[One evidence-based next step]
+  Advice --> Coordinator[Assistant coordinates explicit handoff]
+  Coordinator --> QuickSilver[QuickSilver / measure one bottleneck / smallest fix]
+  QuickSilver --> Proof[Same-workload before and after / latency proof]
+  Proof --> Local
+  QuickSilver --> Approval[Production deployment requires approval]
+  Native -. unavailable .-> Unknown[Unknown stays unknown / no app control]

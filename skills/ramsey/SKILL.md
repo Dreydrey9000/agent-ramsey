@@ -21,7 +21,7 @@ Use the installed `ramsey` command. If the command is unavailable, follow the re
 - `ramsey preflight --job render --memory-gib 4 --cpu-cores 2 --json`: assess explicit job budgets. Missing budgets stay unknown. The check does not launch jobs or replace existing guards.
 - `ramsey energy --json`: battery terminal-power estimate and system thermal state with sources and unsupported readings.
 
-Use `--no-history` on checks when history should not be saved. A short investigation can use `--samples 6 --interval 5`. No daemon or alert is included.
+Use `--no-history` on checks when history should not be saved. A short investigation can use `--samples 6 --interval 5`. No resident model is included. Optional onboarding enables local pressure notices.
 
 ## Reasoning and limits
 
@@ -30,3 +30,10 @@ Lead with the measured finding, observation window and one recommended next step
 Do not call useful work waste. Confirm context before suggesting an interruption. Battery terminal watts are derived from native voltage/current and differ from wall or per-app power. Thermal state is not a temperature reading. Missing measurements stay unavailable.
 
 Keep history and reports private. Never expose command arguments, secrets, screenshots or project contents. Do not stop apps, purge memory, delete files, change system settings, bypass existing guards, install watchers or send notifications under this role. Any separately authorized action needs an identity check and a comparable follow-up measurement.
+
+
+## Onboarding and QuickSilver (2.1)
+
+Use `ramsey onboard` once when the user authorizes scheduled local checks. Verify `ramsey status`: installed, loaded, fresh, and a recent checkedAt. Five-minute pressure checks run at login while awake; deep diagnostics remain on demand. Normal readings stay quiet. Notifications depend on macOS permission; never claim delivery without evidence. `offboard` removes only this installation’s own job and retains history. Keep the checkout and Node executable in place.
+
+For a reproducibly slow app operation, use `ramsey handoff --workload development --json`. RAMsey handles Mac capacity; QuickSilver measures one app bottleneck, proposes one small fix and proves the latency change. A coordinating assistant supplies the exact operation and context. No automatic agent polling, no resident model and no production deployment without approval. Compare same-workload resource readings separately; lower latency does not prove reclaimed RAM.

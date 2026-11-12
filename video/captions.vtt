@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.700
+Meet Agent Ramsey, your Mac's resource agent. He finds what is busy, so your next job has room to run.
+
+00:00:06.700 --> 00:00:13.000
+Ramsey groups apps with their helpers, measures CPU over time, and checks memory pressure first.
+
+00:00:13.000 --> 00:00:21.800
+He protects active and unknown work, including renders, uploads, recordings, and calls. He never closes apps automatically.
+
+00:00:21.800 --> 00:00:28.700
+Before a heavy job, give him a memory and CPU budget. He checks whether to go, wait, or investigate.
+
+00:00:28.700 --> 00:00:37.900
+He also teams up with Quicksilver. Ramsey checks resources. Quicksilver finds one app bottleneck, makes one safe fix, and measures again.
+
+00:00:37.900 --> 00:00:48.500
+Onboard once. Ramsey checks every five minutes after login, stays quiet when things are healthy, and runs no resident AI model.

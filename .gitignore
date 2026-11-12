@@ -14,3 +14,9 @@ VERIFICATION.md
 JAX-HANDOFF.md
 UPGRADES.md
 RELEASE-LOCAL.md
+
+video/.hyperframes/
+video/.thumbnails/
+video/renders/
+
+assets/.ramsey-explainer.hf-transaction-*/

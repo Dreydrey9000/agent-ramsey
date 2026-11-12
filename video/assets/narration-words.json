@@ -1,0 +1,572 @@
+{
+  "provider": "HeyGen",
+  "voice": "Roderic - Authoritative & Refined",
+  "duration": 47.139886621315185,
+  "words": [
+    {
+      "text": "Meet",
+      "start": 0.299,
+      "end": 0.512
+    },
+    {
+      "text": "Agent",
+      "start": 0.555,
+      "end": 0.853
+    },
+    {
+      "text": "Ramsey",
+      "start": 0.896,
+      "end": 1.323
+    },
+    {
+      "text": "your",
+      "start": 1.664,
+      "end": 1.792
+    },
+    {
+      "text": "Mac's",
+      "start": 1.835,
+      "end": 2.2187
+    },
+    {
+      "text": "resource",
+      "start": 2.261,
+      "end": 2.6027
+    },
+    {
+      "text": "agent",
+      "start": 2.688,
+      "end": 2.987
+    },
+    {
+      "text": "He",
+      "start": 3.371,
+      "end": 3.584
+    },
+    {
+      "text": "finds",
+      "start": 3.627,
+      "end": 3.925
+    },
+    {
+      "text": "what",
+      "start": 3.968,
+      "end": 4.096
+    },
+    {
+      "text": "is",
+      "start": 4.139,
+      "end": 4.181
+    },
+    {
+      "text": "busy",
+      "start": 4.224,
+      "end": 4.395
+    },
+    {
+      "text": "so",
+      "start": 4.907,
+      "end": 4.992
+    },
+    {
+      "text": "your",
+      "start": 5.035,
+      "end": 5.1627
+    },
+    {
+      "text": "next",
+      "start": 5.205,
+      "end": 5.333
+    },
+    {
+      "text": "job",
+      "start": 5.461,
+      "end": 5.6747
+    },
+    {
+      "text": "has",
+      "start": 5.76,
+      "end": 5.888
+    },
+    {
+      "text": "room",
+      "start": 5.931,
+      "end": 6.101
+    },
+    {
+      "text": "to",
+      "start": 6.187,
+      "end": 6.272
+    },
+    {
+      "text": "run",
+      "start": 6.315,
+      "end": 6.485
+    },
+    {
+      "text": "Ramsey",
+      "start": 6.912,
+      "end": 7.5947
+    },
+    {
+      "text": "groups",
+      "start": 7.637,
+      "end": 7.893
+    },
+    {
+      "text": "apps",
+      "start": 8.021,
+      "end": 8.192
+    },
+    {
+      "text": "with",
+      "start": 8.32,
+      "end": 8.405
+    },
+    {
+      "text": "their",
+      "start": 8.448,
+      "end": 8.533
+    },
+    {
+      "text": "helpers",
+      "start": 8.576,
+      "end": 8.917
+    },
+    {
+      "text": "measures",
+      "start": 9.259,
+      "end": 9.685
+    },
+    {
+      "text": "CPU",
+      "start": 9.728,
+      "end": 10.24
+    },
+    {
+      "text": "over",
+      "start": 10.325,
+      "end": 10.4107
+    },
+    {
+      "text": "time",
+      "start": 10.539,
+      "end": 10.795
+    },
+    {
+      "text": "and",
+      "start": 11.136,
+      "end": 11.3067
+    },
+    {
+      "text": "checks",
+      "start": 11.349,
+      "end": 11.605
+    },
+    {
+      "text": "memory",
+      "start": 11.691,
+      "end": 11.9467
+    },
+    {
+      "text": "pressure",
+      "start": 12.032,
+      "end": 12.245
+    },
+    {
+      "text": "first",
+      "start": 12.373,
+      "end": 12.672
+    },
+    {
+      "text": "He",
+      "start": 13.255,
+      "end": 13.426
+    },
+    {
+      "text": "protects",
+      "start": 13.469,
+      "end": 13.767
+    },
+    {
+      "text": "active",
+      "start": 13.895,
+      "end": 14.1087
+    },
+    {
+      "text": "and",
+      "start": 14.45,
+      "end": 14.6207
+    },
+    {
+      "text": "unknown",
+      "start": 14.663,
+      "end": 15.09
+    },
+    {
+      "text": "work",
+      "start": 15.218,
+      "end": 15.431
+    },
+    {
+      "text": "including",
+      "start": 15.858,
+      "end": 16.114
+    },
+    {
+      "text": "renders",
+      "start": 16.242,
+      "end": 16.669
+    },
+    {
+      "text": "uploads",
+      "start": 17.095,
+      "end": 17.607
+    },
+    {
+      "text": "recordings",
+      "start": 17.906,
+      "end": 18.333
+    },
+    {
+      "text": "and",
+      "start": 18.845,
+      "end": 18.9727
+    },
+    {
+      "text": "calls",
+      "start": 19.015,
+      "end": 19.229
+    },
+    {
+      "text": "He",
+      "start": 19.954,
+      "end": 20.125
+    },
+    {
+      "text": "never",
+      "start": 20.167,
+      "end": 20.2527
+    },
+    {
+      "text": "closes",
+      "start": 20.381,
+      "end": 20.6367
+    },
+    {
+      "text": "apps",
+      "start": 20.765,
+      "end": 20.978
+    },
+    {
+      "text": "automatically",
+      "start": 21.106,
+      "end": 21.533
+    },
+    {
+      "text": "Before",
+      "start": 22.13,
+      "end": 22.215
+    },
+    {
+      "text": "a",
+      "start": 22.386,
+      "end": 22.4287
+    },
+    {
+      "text": "heavy",
+      "start": 22.471,
+      "end": 22.599
+    },
+    {
+      "text": "job",
+      "start": 22.727,
+      "end": 22.983
+    },
+    {
+      "text": "give",
+      "start": 23.453,
+      "end": 23.581
+    },
+    {
+      "text": "him",
+      "start": 23.623,
+      "end": 23.666
+    },
+    {
+      "text": "a",
+      "start": 23.709,
+      "end": 23.794
+    },
+    {
+      "text": "memory",
+      "start": 23.837,
+      "end": 24.0927
+    },
+    {
+      "text": "and",
+      "start": 24.263,
+      "end": 24.391
+    },
+    {
+      "text": "CPU",
+      "start": 24.434,
+      "end": 24.903
+    },
+    {
+      "text": "budget",
+      "start": 24.989,
+      "end": 25.287
+    },
+    {
+      "text": "He",
+      "start": 25.757,
+      "end": 25.842
+    },
+    {
+      "text": "checks",
+      "start": 25.885,
+      "end": 26.098
+    },
+    {
+      "text": "whether",
+      "start": 26.183,
+      "end": 26.311
+    },
+    {
+      "text": "to",
+      "start": 26.397,
+      "end": 26.482
+    },
+    {
+      "text": "go",
+      "start": 26.525,
+      "end": 26.653
+    },
+    {
+      "text": "wait",
+      "start": 27.037,
+      "end": 27.293
+    },
+    {
+      "text": "or",
+      "start": 27.591,
+      "end": 27.762
+    },
+    {
+      "text": "investigate",
+      "start": 27.847,
+      "end": 28.359
+    },
+    {
+      "text": "He",
+      "start": 28.93,
+      "end": 29.058
+    },
+    {
+      "text": "also",
+      "start": 29.101,
+      "end": 29.186
+    },
+    {
+      "text": "teams",
+      "start": 29.357,
+      "end": 29.57
+    },
+    {
+      "text": "up",
+      "start": 29.698,
+      "end": 29.7835
+    },
+    {
+      "text": "with",
+      "start": 29.869,
+      "end": 29.954
+    },
+    {
+      "text": "Quicksilver",
+      "start": 30.04,
+      "end": 30.466
+    },
+    {
+      "text": "Ramsey",
+      "start": 31.021,
+      "end": 31.4475
+    },
+    {
+      "text": "checks",
+      "start": 31.533,
+      "end": 31.7888
+    },
+    {
+      "text": "resources",
+      "start": 31.874,
+      "end": 32.215
+    },
+    {
+      "text": "Quicksilver",
+      "start": 32.898,
+      "end": 33.3248
+    },
+    {
+      "text": "finds",
+      "start": 33.495,
+      "end": 33.794
+    },
+    {
+      "text": "one",
+      "start": 33.837,
+      "end": 34.0928
+    },
+    {
+      "text": "app",
+      "start": 34.178,
+      "end": 34.306
+    },
+    {
+      "text": "bottleneck",
+      "start": 34.392,
+      "end": 34.818
+    },
+    {
+      "text": "makes",
+      "start": 35.202,
+      "end": 35.4155
+    },
+    {
+      "text": "one",
+      "start": 35.544,
+      "end": 35.7568
+    },
+    {
+      "text": "safe",
+      "start": 35.842,
+      "end": 36.098
+    },
+    {
+      "text": "fix",
+      "start": 36.226,
+      "end": 36.397
+    },
+    {
+      "text": "and",
+      "start": 36.781,
+      "end": 37.0368
+    },
+    {
+      "text": "measures",
+      "start": 37.08,
+      "end": 37.3355
+    },
+    {
+      "text": "again",
+      "start": 37.464,
+      "end": 37.634
+    },
+    {
+      "text": "Onboard",
+      "start": 38.146,
+      "end": 38.615
+    },
+    {
+      "text": "once",
+      "start": 38.701,
+      "end": 38.871
+    },
+    {
+      "text": "Ramsey",
+      "start": 39.631,
+      "end": 40.0577
+    },
+    {
+      "text": "checks",
+      "start": 40.1,
+      "end": 40.4417
+    },
+    {
+      "text": "every",
+      "start": 40.527,
+      "end": 40.655
+    },
+    {
+      "text": "five",
+      "start": 40.783,
+      "end": 40.996
+    },
+    {
+      "text": "minutes",
+      "start": 41.124,
+      "end": 41.252
+    },
+    {
+      "text": "after",
+      "start": 41.38,
+      "end": 41.508
+    },
+    {
+      "text": "login",
+      "start": 41.679,
+      "end": 42.02
+    },
+    {
+      "text": "stays",
+      "start": 42.532,
+      "end": 42.7457
+    },
+    {
+      "text": "quiet",
+      "start": 42.831,
+      "end": 43.1297
+    },
+    {
+      "text": "when",
+      "start": 43.343,
+      "end": 43.471
+    },
+    {
+      "text": "things",
+      "start": 43.514,
+      "end": 43.6417
+    },
+    {
+      "text": "are",
+      "start": 43.77,
+      "end": 43.812
+    },
+    {
+      "text": "healthy",
+      "start": 43.855,
+      "end": 44.026
+    },
+    {
+      "text": "and",
+      "start": 44.452,
+      "end": 44.708
+    },
+    {
+      "text": "runs",
+      "start": 44.751,
+      "end": 45.007
+    },
+    {
+      "text": "no",
+      "start": 45.092,
+      "end": 45.348
+    },
+    {
+      "text": "resident",
+      "start": 45.476,
+      "end": 45.775
+    },
+    {
+      "text": "AI",
+      "start": 45.946,
+      "end": 46.3297
+    },
+    {
+      "text": "model",
+      "start": 46.372,
+      "end": 46.586
+    }
+  ]
+}

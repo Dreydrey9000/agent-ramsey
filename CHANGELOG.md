@@ -1,5 +1,12 @@
 # Change log
 
+## 2.1.0
+
+- One-time onboarding for five-minute native pressure checks at login, with quiet persistence and local notice cooldowns.
+- Status, safe removal, monitor-state recovery and verified loaded-job arguments.
+- Evidence-based resource advice and an explicit QuickSilver handoff with separate resource and latency proof.
+- Operation Headroom: editable Hyperframes explainer and original score.
+
 ## Artwork, 2026-11-11
 
 - Added the selected noir operative identity with a matching cover and avatar.

@@ -4,9 +4,12 @@ import { snapshot, systemState, type Snapshot } from './monitor.mts';
 import { cpuIdle, energyDiagnostics } from './energy.mts';
 import { annotateWork, helperDiagnostics } from './helpers.mts';
 import { compareEntries, isWorkload, LocalState, trends, type Workload } from './state.mts';
+import { resourceAdvice } from './advice.mts';
+import { onboard, offboard, monitorStatus } from './onboarding.mts';
+import { watchOnce } from './watcher.mts';
 import { assessCapacity } from './preflight.mts';
 
-const COMMANDS = ['check', 'history', 'compare', 'helpers', 'work', 'protect', 'unprotect', 'preflight', 'energy', 'version'] as const;
+const COMMANDS = ['check', 'history', 'compare', 'helpers', 'work', 'protect', 'unprotect', 'preflight', 'energy', 'version', 'onboard', 'offboard', 'status', 'watch-once', 'handoff'] as const;
 type Command = typeof COMMANDS[number];
 export type Options = { command: Command; samples: number; interval: number; json: boolean; help: boolean;
   workload: Workload; noHistory: boolean; pid: number | null; kind: Workload; ttlMinutes: number;
@@ -54,7 +57,7 @@ export function parseArgs(args: string[]) {
     } else throw new Error(`Unknown option. Run ramsey --help.`);
   }
   const allowed: Record<Command, string[]> = { check: ['--samples', '--interval', '--workload', '--no-history'], history: [], compare: [], helpers: [], work: [],
-    protect: ['--pid', '--kind', '--ttl-minutes'], unprotect: ['--pid'], preflight: ['--memory-gib', '--cpu-cores', '--job'], energy: [], version: [] };
+    protect: ['--pid', '--kind', '--ttl-minutes'], unprotect: ['--pid'], preflight: ['--memory-gib', '--cpu-cores', '--job'], energy: [], version: [], onboard: [], offboard: [], status: [], 'watch-once': [], handoff: ['--samples', '--interval', '--workload', '--no-history'] };
   for (const flag of used) if (!allowed[options.command].includes(flag)) throw new Error(`${flag} is not supported for this command`);
   if (!options.help && ['protect', 'unprotect'].includes(options.command) && options.pid === null) throw new Error('This command requires --pid');
   if (!options.help && options.command === 'protect' && options.kind === 'unknown') throw new Error('Protect requires a known --kind');
@@ -85,19 +88,21 @@ export function formatReport(report: Report): string {
   ].join('\n\n');
 }
 
-const HELP = `Agent RAMsey 2.0.1: on-demand Mac resource checks
+const HELP = `Agent RAMsey 2.1.0: on-demand Mac resource checks
 Usage: ramsey [check] [--samples 1..12] [--interval 1..10] [--workload KIND] [--no-history] [--json]
        ramsey history|compare|helpers|work|energy [--json]
        ramsey protect --pid PID --kind KIND [--ttl-minutes 1..1440] [--json]
        ramsey unprotect --pid PID [--json]
        ramsey preflight [--job KIND] [--memory-gib N] [--cpu-cores N] [--json]
+       ramsey onboard|status|offboard [--json]
+       ramsey handoff [--workload KIND] [--json]
        ramsey version
 KIND: idle, render, upload, record, call, indexing, local-model, development, other, unknown
 History: up to 100 entries for 14 days. State: RAMSEY_STATE_DIR or ~/.local/state/ramsey.
-Default: three 5-second intervals. No daemon, notifications or automatic app control.`;
+Default: three 5-second intervals. Onboard: a five-minute native check at login with local notices. No model or automatic app control.`;
 
 export async function run(options: Options): Promise<unknown> {
-  if (options.command === 'version') return { version: '2.0.1' };
+  if (options.command === 'version') return { version: '2.1.0' };
   const state = () => new LocalState();
   if (options.command === 'history' || options.command === 'compare') {
     const entries = state().history();
@@ -106,6 +111,10 @@ export async function run(options: Options): Promise<unknown> {
     return { ...compareEntries(entries.at(-2)!, entries.at(-1)!), growingGroups: trends(entries) };
   }
   if (process.platform !== 'darwin') throw new Error('Live diagnostics require macOS. Run the Mac command through your configured connection.');
+  if (options.command === 'onboard') return onboard();
+  if (options.command === 'offboard') return offboard();
+  if (options.command === 'status') return monitorStatus();
+  if (options.command === 'watch-once') return watchOnce();
   if (options.command === 'energy') return energyDiagnostics();
   if (options.command === 'preflight') return assessCapacity(systemState(), energyDiagnostics(), cpuIdle(),
     { memoryGiB: options.memoryGiB, cpuCores: options.cpuCores, kind: options.kind });
@@ -137,16 +146,16 @@ export async function run(options: Options): Promise<unknown> {
       comparison: entries.length >= 2 ? compareEntries(entries.at(-2)!, entries.at(-1)!) : null };
   }
   const cpu = process.cpuUsage(cpuStart);
-  return { ...report, version: 2, release: '2.0.1', workload: options.workload, activeWork: annotateWork(latest.processes, active),
-    energy, helpers, history, observer: { wallSeconds: (performance.now() - wallStart) / 1000,
+  return { ...report, version: 2, release: '2.1.0', workload: options.workload, activeWork: annotateWork(latest.processes, active),
+    energy, helpers, history, advice: resourceAdvice(report), observer: { wallSeconds: (performance.now() - wallStart) / 1000,
       nodeCpuSeconds: (cpu.user + cpu.system) / 1000000, nodeRssMiB: process.memoryUsage().rss / 1048576,
       note: 'Observer values cover the Node process. Native helper CPU and memory are not included.' } };
 }
 
 function formatExtended(value: unknown): string {
-  const report = value as Report & { version: number; release?: string; energy?: unknown; helpers?: unknown; activeWork?: unknown; history?: unknown; observer?: unknown };
+  const report = value as Report & { version: number; release?: string; energy?: unknown; helpers?: unknown; activeWork?: unknown; history?: unknown; observer?: unknown; advice?: unknown };
   if (!report.release) return JSON.stringify(value, null, 2);
-  return `${formatReport(report)}\n## Additional diagnostics\n\n${JSON.stringify({ energy: report.energy, helpers: report.helpers, activeWork: report.activeWork, history: report.history, observer: report.observer }, null, 2)}\n`;
+  return `${formatReport(report)}\n## Additional diagnostics\n\n${JSON.stringify({ advice: report.advice, energy: report.energy, helpers: report.helpers, activeWork: report.activeWork, history: report.history, observer: report.observer }, null, 2)}\n`;
 }
 
 async function main() {

@@ -1,0 +1,11 @@
+Meet Agent Ramsey, your Mac's resource agent. He finds what is busy, so your next job has room to run.
+
+Ramsey groups apps with their helpers, measures CPU over time, and checks memory pressure first.
+
+He protects active and unknown work, including renders, uploads, recordings, and calls. He never closes apps automatically.
+
+Before a heavy job, give him a memory and CPU budget. He checks whether to go, wait, or investigate.
+
+He also teams up with Quicksilver. Ramsey checks resources. Quicksilver finds one app bottleneck, makes one safe fix, and measures again.
+
+Onboard once. Ramsey checks every five minutes after login, stays quiet when things are healthy, and runs no resident AI model.

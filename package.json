@@ -1,9 +1,9 @@
 {
   "name": "agent-ramsey",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "On-demand macOS resource diagnostics for humans and coding agents",
+  "description": "Lightweight macOS resource monitoring and diagnostics for humans and coding agents",
   "engines": { "node": ">=22.18.0" },
   "scripts": {
     "test": "node --test tests/*.test.mts",
